@@ -1,13 +1,13 @@
 import numpy as np
 
 
-def tp(ts: list):
+def tp(_ts: list):
     """
     renvoit la liste des taches avec un seul executant
-    :param ts: liste des taches parallele
+    :param _ts: liste des taches parallele
     :return: temps dans un planning sequentiel
     """
-    return [tache for jour in ts for tache in jour]
+    return [tache for jour in _ts for tache in jour]
 
 
 def ts(mat: np.ndarray) -> list:
