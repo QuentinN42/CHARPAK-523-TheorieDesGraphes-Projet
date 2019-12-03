@@ -20,7 +20,11 @@ def ts(mat: np.ndarray) -> list:
     n = len(mat)
     _taked = np.zeros(n, dtype=bool)
     while sum(_taked) != n:
-        _add = [i for i, e in enumerate(list(mat.transpose())) if not _taked[i] and not sum(np.where(_taked, 0, e) != 0)]
+        _add = [
+            i
+            for i, e in enumerate(list(mat.transpose()))
+            if not _taked[i] and not sum(np.where(_taked, 0, e) != 0)
+        ]
         _taked[_add] = True
         _ts.append(_add)
     return _ts

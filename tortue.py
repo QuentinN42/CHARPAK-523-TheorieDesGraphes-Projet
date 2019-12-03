@@ -38,7 +38,7 @@ def arc(x, a):
         t.setpos(a, 30)
     t.left(90)
     t.down()
-    t.circle(abs(x - a)/2, 180)
+    t.circle(abs(x - a) / 2, 180)
     t.right(135)
     t.forward(5)
     t.backward(5)
@@ -57,9 +57,9 @@ def arcp(x, a, p):
         t.setpos(a, 30)
     t.left(90)
     t.down()
-    t.circle(abs(x - a)/2, 90)
+    t.circle(abs(x - a) / 2, 90)
     t.write(p, align="center")
-    t.circle(abs(x - a)/2, 90)
+    t.circle(abs(x - a) / 2, 90)
     t.right(135)
     t.forward(5)
     t.backward(5)
@@ -70,7 +70,7 @@ def arcp(x, a, p):
 def graph(m: np.ndarray, base_dist: int = 100, weight: bool = True):
     n = len(m)
     r = range(n)
-    pos = np.arange((1-n)/2, (n+1)/2)*base_dist
+    pos = np.arange((1 - n) / 2, (n + 1) / 2) * base_dist
     for i in r:
         sommet(i, pos[i])
     for i in r:
