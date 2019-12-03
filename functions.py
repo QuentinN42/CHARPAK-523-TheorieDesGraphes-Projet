@@ -32,6 +32,8 @@ def ts(mat: np.ndarray) -> list:
             for i, e in enumerate(list(mat.transpose()))
             if not _taked[i] and not sum(np.where(_taked, 0, e) != 0)
         ]
+        if _add is []:
+            raise CycleError("A cycle is found in this graph")
         _taked[_add] = True
         _ts.append(_add)
     return _ts
