@@ -1,6 +1,13 @@
 import numpy as np
 
 
+class CycleError(Exception):
+    """
+    Raised when a cylce is found in the graph
+    """
+    pass
+
+
 def tp(_ts: list):
     """
     renvoit la liste des taches avec un seul executant
