@@ -1,3 +1,19 @@
+"""
+Nour Boulahcen, Quentin Lieumont
+Programe qui trouve le planning sequentiel et le planning au plus vite d'un graph de taches.
+Il est montré dans le main quatres exemples de graphs.
+La fonction peut etre testé plus en profondeur via un import :
+>>> from main import test
+>>> import numpy as np
+>>> matrice = np.ones((2,2))
+>>> test(matrice)
+=============================
+    Test sur la matrice :
+  0 1
+0 1 1
+1 1 1
+Le graph est cyclique
+"""
 from functions import tp, ts, afficher, CycleError
 from tortue import graph, t
 import numpy as np
