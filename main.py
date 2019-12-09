@@ -15,11 +15,10 @@ La fonction peut etre testé plus en profondeur via un import :
 Le graph est cyclique
 """
 from functions import tp, ts, afficher, CycleError
-from tortue import graph, t
 import numpy as np
 
 
-def test(mat: np.ndarray, _graph: bool = False):
+def test(mat: np.ndarray, _graph: bool = True):
     """
     applique l'algorithme principal sur la matrice mat
     :param mat: matrice à tester
@@ -40,6 +39,7 @@ def test(mat: np.ndarray, _graph: bool = False):
     afficher(_ts, "au plus vite")
     afficher(_tp, "sequentiel")
     if _graph:
+        from tortue import graph, t
         graph(mat, weight=False)
         t.up()
         t.setpos(1000, 1000)
@@ -68,5 +68,5 @@ if __name__ == "__main__":
         np.zeros((5, 5))
     ]
     for matrice in matrices:
-        test(matrice, _graph=False)
+        test(matrice)
     input()

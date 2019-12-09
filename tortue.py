@@ -3,7 +3,6 @@ import turtle
 import numpy as np
 
 t = turtle.Turtle()
-t.speed(0)
 
 
 def move_to(x: int, y: int, write: bool = False):
@@ -68,6 +67,9 @@ def arcp(x, a, p):
 
 
 def graph(m: np.ndarray, base_dist: int = 100, weight: bool = True):
+    t.clear()
+    t.reset()
+    t.speed(0)
     n = len(m)
     r = range(n)
     pos = np.arange((1 - n) / 2, (n + 1) / 2) * base_dist
