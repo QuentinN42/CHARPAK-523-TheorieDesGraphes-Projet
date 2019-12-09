@@ -15,7 +15,6 @@ La fonction peut etre testé plus en profondeur via un import :
 Le graph est cyclique
 """
 from functions import tp, ts, afficher, CycleError
-from tortue import graph, t
 import numpy as np
 
 
@@ -33,16 +32,19 @@ def test(mat: np.ndarray, _graph: bool = True):
         print(str(i) + " " + " ".join(map(str, l.astype(int))))
     try:
         _ts = ts(mat)
+        _tp = tp(_ts)
+        afficher(_ts, "au plus vite")
+        afficher(_tp, "sequentiel")
+        print("\n"*5)
+        if _graph:
+            from tortue import graph, t
+            graph(mat, weight=False)
+            t.up()
+            t.setpos(1000, 1000)
     except CycleError:
         print("Le graph est cyclique")
+        print("\n"*5)
         return
-    _tp = tp(_ts)
-    afficher(_ts, "au plus vite")
-    afficher(_tp, "sequentiel")
-    if _graph:
-        graph(mat, weight=False)
-        t.up()
-        t.setpos(1000, 1000)
 
 
 if __name__ == "__main__":
@@ -64,9 +66,16 @@ if __name__ == "__main__":
                 [0, 0, 0],
             ]
         ),
+        np.array(
+            [
+                [0, 0, 1],
+                [1, 0, 1],
+                [1, 0, 0],
+            ]
+        ),
         np.ones((5, 5)),
         np.zeros((5, 5))
     ]
     for matrice in matrices:
-        test(matrice)
+        test(matrice, _graph=False)
     input()
